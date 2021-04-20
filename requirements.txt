@@ -1,0 +1,10 @@
+pandas==0.25.3
+numpy==1.18.0
+python-crontab==2.3.9
+keras
+tensorflow
+joblib==0.16.0
+tqdm==4.28.1
+selenium==3.141.0
+beautifulsoup4==4.9.1
+webdriver-manager==3.2.1
