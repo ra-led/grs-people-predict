@@ -7,6 +7,12 @@ import joblib
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
 
 grs = joblib.load('ground_truth_grs.joblib')
 grs.update(joblib.load('other_grs.joblib'))
@@ -15,7 +21,10 @@ grs.update(joblib.load('other_grs.joblib'))
 #code = '5141'
 base = 'https://www.gismeteo.ru/weather-{place}-{gm_code}/month/'
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+try:
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+except:
+    driver = webdriver.Chrome("/usr/bin/chromedriver",chrome_options=chrome_options)
 
 dfs = []
 for k, v in grs.items():

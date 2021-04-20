@@ -5,6 +5,7 @@ keras
 tensorflow
 joblib==0.16.0
 tqdm==4.28.1
+lxml==4.6.3
 selenium==3.141.0
 beautifulsoup4==4.9.1
 webdriver-manager==3.2.1
